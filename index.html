@@ -1447,6 +1447,10 @@ if (typeof module !== "undefined") {
         <div class="row between"><h2>${esc(da.titulo)}</h2><span class="lnk">Continuar ›</span></div>
         <p class="muted small">${esc(da.nombre)} · empezaste hace ${duracion(Math.max(0, min))} · ${hechasAct()} series marcadas</p></div>`;
     }
+    // Alguien nuevo (sin sesiones) con la rutina de ejemplo: que quede claro que no es suya y cómo armar la propia
+    if (!S.act && semillaSinUso() && !S.ses.some((s) => !s.ejemplo)) h += `<div class="card hero"><p class="eyebrow">Para empezar</p><h2>Arma tu rutina</h2>
+      <p class="muted">Lo que ves abajo es una rutina de ejemplo (la JSM). Cópiala y ajústala a ti, o empieza en blanco. Cuando guardes la tuya, la de ejemplo se quita.</p>
+      <button class="btn primary block" data-a="bienv-rutina">Armar mi rutina</button></div>`;
     h += semanaCard(now);
     if (hoyHecho && !(S.act && !S.act.fuera)) {
       // Lo que de verdad hiciste hoy (puede ser el de otro día)
